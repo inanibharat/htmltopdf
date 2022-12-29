@@ -84,12 +84,13 @@ signingConfigs {
 
 ```
 
-2. Always clean old build using this command ```./gradlew clean```
-3. Create APK file using this command ```./gradlew assembleRelease```
-4. File Location ```android/app/build/outputs/apk/release/release.apk```
-5. Upload APK file to <https://www.diawi.com>
+3. ```cd android``` use this command to navigate ```android``` folder
+4. Always clean old build using this command ```./gradlew clean```
+5. Create APK file using this command ```./gradlew assembleRelease```
+6. Copy file from this Location ```android/app/build/outputs/apk/release/app-release.apk```
+7. Upload APK file to <https://www.diawi.com> using <https://github.com/marketplace/actions/upload-diawi>
 
-## 2. For iOS
+## 2. For iOS Manual Process
 
 1. Open file ```taxinvoice.xcworkspace``` in xCode
 2. Select Team options from ```Singing and Capabilities```
@@ -101,6 +102,17 @@ signingConfigs {
 8. Select Automatically manage singing and Click Next and wait for done itself
 9. Click Export at your select location
 10. Upload iPA file to <https://www.diawi.com>
+
+## 2. For iOS Automated Process
+1. ```cd ios``` to navigate ios folder
+2. Run this command to generate .ipa file
+
+## Archive
+
+```
+xcodebuild -workspace ios/taxinvoice.xcworkspace -scheme taxinvoice clean archive -configuration release -sdk iphoneos -archivePath taxinvoice.xcarchive
+
+```
 
 ## Release to Play store and App store
 
