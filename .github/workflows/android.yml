@@ -39,7 +39,7 @@ jobs:
       uses: rnkdsh/action-upload-diawi@v1.3.0
       with:
         # Diawi API access token
-        #token: 
+        token: ${{ secrets.DIAWI_TOKEN }}
         # APK file to upload on Diawi
         file: android/app/build/outputs/apk/release/app-release.apk
         # Protect your app with a password. It will be required to access the installation page
