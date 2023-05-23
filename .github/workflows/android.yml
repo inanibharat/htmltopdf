@@ -37,7 +37,7 @@ jobs:
     - name: zip app-release.apk
       uses: vimtor/action-zip@v1
       with:
-          files: android/app/build/outputs/apk/release/app-release.apk
+          files: android/app/build/outputs/apk/release/*.*
           dest: android/app/build/outputs/apk/release/release.zip
     - name: Upload Diawi
       # You may pin to the exact commit or the version.
