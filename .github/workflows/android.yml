@@ -33,6 +33,12 @@ jobs:
         name: release # optional, default is artifact
         # A file, directory or wildcard pattern that describes what to upload
         path: android/app/build/outputs/apk/release/app-release.apk
+        
+    - name: zip .apk
+      uses: vimtor/action-zip@v1
+      with:
+          files: android/app/build/outputs/apk/release/app-release.apk
+          dest: android/app/build/outputs/apk/release/app-release.zip
     - name: Upload Diawi
       # You may pin to the exact commit or the version.
       # uses: rnkdsh/action-upload-diawi@8434e3672357f1364f6f74ef78e37a50f7f34051
@@ -41,7 +47,7 @@ jobs:
         # Diawi API access token
         token: ${{ secrets.DIAWI_TOKEN }}
         # APK file to upload on Diawi
-        file: android/app/build/outputs/apk/release/app-release.apk
+        file: android/app/build/outputs/apk/release/app-release.zip
         # Protect your app with a password. It will be required to access the installation page
         #password: # optional
         # Email addresses Diawi will send the result to (up to 5 separated by commas for starter/premium/enterprise accounts, 1 for free accounts)
